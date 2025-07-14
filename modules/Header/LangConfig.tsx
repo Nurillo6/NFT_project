@@ -25,7 +25,6 @@ const LangConfig = () => {
         setLang(item)
         router.push(pathname, { locale: item.title })
     }
-
     useEffect(() => {
         if (b == "uz" || b == "en" || b == "ru") {
             const findLang = langList.find(item => item.title == b)
