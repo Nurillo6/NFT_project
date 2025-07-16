@@ -1,11 +1,15 @@
+import SingleCreator from '@/modules/SingleCreator'
+import { getRequest } from '@/service/getRequest';
 import React, { FC, ReactNode } from 'react'
 
-const CreatorLayout:FC<{children:ReactNode}> = ({children}) => {
+const CreatorLayout: FC<{ children: ReactNode, params: Promise<{ id: string }> }> = async ({ children, params }) => {
+  const { id } = await params
+  
+  const singleCreateData = await getRequest(`/user/${id}`);
   return (
     <>
-    Single creator logo, content
-    {children}
-    {/* Asilbek yozadi */}
+      <SingleCreator singleCreateData={singleCreateData} id={id} />
+      {children}
     </>
   )
 }
