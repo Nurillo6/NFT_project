@@ -1,3 +1,5 @@
+import { MetaType } from "./MetaType";
+
 export interface CategoryType {
   id: string;
   name: string;
@@ -5,4 +7,11 @@ export interface CategoryType {
   icon: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface CategoryPageType {
+  categoriesList:{
+    data:CategoryType[],
+    meta:MetaType
+  }
 }

@@ -1,7 +1,8 @@
 "use client";
 import { EyeIcon } from "@/assets/icons";
+import { FormatTime } from "@/components";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const MagicMushrooms = () => {
     const [timeLeft, setTimeLeft] = useState({
@@ -34,9 +35,6 @@ const MagicMushrooms = () => {
 
         return () => clearInterval(timer);
     }, []);
-    const formatTime = (time: any) => {
-        return time.toString().padStart(2, "0");
-    };
     return (
         <section style={{ backgroundImage: 'url("/mashroom.svg")', backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundAttachment:"fixed" }} className="h-[660px] flex justify-end pb-[60px] overflow-hidden">
             <div className="containers flex items-end w-full justify-between">
@@ -62,21 +60,21 @@ const MagicMushrooms = () => {
                     <div className="flex items-center space-x-4">
                         <div className="text-center">
                             <div className="text-4xl font-bold text-white">
-                                {formatTime(timeLeft.hours)}
+                                {FormatTime(timeLeft.hours)}
                             </div>
                             <div className="text-white/60 text-xs">Hours</div>
                         </div>
                         <div className="text-white text-2xl">:</div>
                         <div className="text-center">
                             <div className="text-4xl font-bold text-white">
-                                {formatTime(timeLeft.minutes)}
+                                {FormatTime(timeLeft.minutes)}
                             </div>
                             <div className="text-white/60 text-xs">Minutes</div>
                         </div>
                         <div className="text-white text-2xl">:</div>
                         <div className="text-center">
                             <div className="text-4xl font-bold text-white">
-                                {formatTime(timeLeft.seconds)}
+                                {FormatTime(timeLeft.seconds)}
                             </div>
                             <div className="text-white/60 text-xs">Seconds</div>
                         </div>

@@ -1,4 +1,5 @@
 import { CollectionType } from "./CollectionType";
+import { MetaType } from "./MetaType";
 import { NftType } from "./NftType";
 
 export interface ArtistType {
@@ -20,3 +21,10 @@ export interface ArtistType {
   ownedNFTs: NftType[];
   collections: CollectionType[];
 }
+
+export interface ArtistPageType {
+  artistsList:{
+    data:ArtistType[],
+    meta:MetaType
+  }
+} 

@@ -1,19 +1,15 @@
-"use client"
-import { ArtistType } from '@/@types/ArtistType'
-import { NftType } from '@/@types/NftType'
-import NftCard from '@/components/NftCard'
-import { Context } from '@/context/Context'
-import React, { useContext } from 'react'
+import { SingleArtist } from '@/modules';
+import { getRequestServer } from '@/service/getRequest';
+import React, { FC, ReactNode } from 'react'
 
-const Created = () => {
-  const { singleArtistData }: { singleArtistData: ArtistType | {} } = useContext(Context)
+const CreatorLayout: FC<{ children: ReactNode, params: Promise<{ id: string }> }> = async ({ children, params }) => {
+  const { id } = await params
+  const singleArtist = await getRequestServer(`/user/${id}`);
   return (
-    <div className='bg-[#3B3B3B]'>
-      <div className='containers flex justify-between gap-y-[30px] gap-x-[10px] !py-[80px]'>
-        {(singleArtistData as ArtistType)?.createdNFTs?.map((item: NftType) => <NftCard key={item.id} item={item} name={(singleArtistData as ArtistType).username} imgURL={(singleArtistData as ArtistType).image} />)}
-      </div>
-    </div>
+    <>
+      <SingleArtist id={id} singleArtist={singleArtist}/>
+    </>
   )
 }
 
-export default Created
+export default CreatorLayout

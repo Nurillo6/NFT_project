@@ -5,7 +5,7 @@ import React, { FC } from 'react'
 import Heading from './Heading'
 import Text from './Text'
 
-const NftCard: FC<{ item: NftType2 | NftType, name?:string, imgURL?:string, id?:string }> = ({ item, name, imgURL, id }) => {
+const NftCard: FC<{ item: NftType2 | NftType, name?:string, imgURL?:string }> = ({ item, name, imgURL}) => {
     return (
         <div className={`w-[330px] ${name ? "bg-[#2B2B2B]" : "bg-[#FFFFFF1A]"} rounded-[20px] overflow-hidden`}>
             <Image className='w-[330px] h-[296px]' src={`${API}/file/${item.image}`} alt='Category img' width={330} height={296} priority />

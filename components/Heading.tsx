@@ -1,8 +1,6 @@
-import { getCookie } from 'cookies-next'
 import React, { ReactNode } from 'react'
 
 const Heading = ({children,classList, tag}:{children:ReactNode, classList?:string, tag:"h1" | "h2" | "h3"}) => {
-  
   if(tag == "h1"){
     return <h1 className={`font-semibold text-[38px] leading-[130%] lg:text-[67px] lg:leading-[101%]  text-white ${classList}`}>{children}</h1>
   }

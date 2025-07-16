@@ -1,6 +1,5 @@
-export interface routeType {
+export interface RouteType {
     id:number,
     title:string, 
-    href:string,
-    count?:number
+    count:number
 }

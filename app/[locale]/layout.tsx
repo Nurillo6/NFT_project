@@ -5,7 +5,6 @@ import Layout from "@/provider";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { GlobalContext } from "@/context/Context";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -33,9 +32,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={`${workSans.variable} antialiased`}>
         <NextIntlClientProvider>
-          <GlobalContext>
             <Layout>{children}</Layout>
-          </GlobalContext>
         </NextIntlClientProvider>
       </body>
     </html>

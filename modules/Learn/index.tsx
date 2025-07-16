@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
-import { Collection, Korzinka, Wallet } from "../public";
+import { Collection, Korzinka, Wallet } from "../../public";
 
 const Learn = () => {
+    // const t = useTranslations("") bu yerda tarjima qilasiz
     return (
         <section className="py-[80px]">
             <div className="containers space-y-[48px]">

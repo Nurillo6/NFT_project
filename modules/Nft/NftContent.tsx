@@ -1,21 +1,11 @@
 "use client"
-import { MetaType } from '@/@types/MetaType'
-import { NftType2 } from '@/@types/NftType'
+import { NftType2, NtfPageType } from '@/@types/NftType'
 import { EyeIcon } from '@/assets/icons'
-import Button from '@/components/Button'
-import Heading from '@/components/Heading'
-import NftCard from '@/components/NftCard'
-import Text from '@/components/Text'
-import { getQueryData } from '@/lib/getQueryData'
+import { Button, Heading, NftCard, Text } from '@/components'
 import React, { FC } from 'react'
 
-
-interface NftPageType {
-    nft: { data: NftType2[], meta: MetaType }
-}
-
-const NFTMore: FC<NftPageType> = ({ nft }) => {
-    const { data: nftList } = getQueryData("/nfts?limit=3", nft, 'nft')
+const NftContent:FC<NtfPageType> = ({nftList}) => {
+    // const t = useTranslations() bu yerda tarjima qilasiz
     return (
         <section className='py-[80px]'>
             <div className="containers">
@@ -27,11 +17,11 @@ const NFTMore: FC<NftPageType> = ({ nft }) => {
                     <Button extraClass='!px-[50px]' type='button' variant='outlined' icon={<EyeIcon />} iconPostion='left' title='See All' />
                 </div>
                 <div className='flex justify-between gap-[10px]'>
-                    {nftList?.data?.map((item:NftType2) => <NftCard key={item.id} item={item}/>)}
+                    {nftList.data.map((item: NftType2) => <NftCard key={item.id} item={item} />)}
                 </div>
             </div>
         </section>
     )
 }
 
-export default NFTMore
+export default NftContent
