@@ -16,7 +16,6 @@ interface HeroType {
   artists:{data:ArtistType[], meta:MetaType},
   actionResults:{data:any[], meta:MetaType}
 }
-
 const Hero:FC<HeroType> = ({actions, artists, actionResults}) => {
   const t = useTranslations("HeroContent")
   const {data:actionsList, isLoading:actionLoading} = getQueryData("/auctions", actions,'auctions')
@@ -31,15 +30,15 @@ const Hero:FC<HeroType> = ({actions, artists, actionResults}) => {
           <Button extraClass='!px-[50px]' title={t("buttonContent")} icon={<RocketIcon />} iconPostion='left' type='button' variant='filled' />
           <div className='!mt-[20px] lg:mt-[36px] flex gap-[30px]'>
             <div>
-              <Heading classList='' tag='h3'>{actionResultsLoading ? "0" : actionResultsList.meta.total}</Heading>
+              <Heading classList='' tag='h3'>{actionResultsLoading ? "0" : actionResultsList?.meta?.total}</Heading>
               <Text classList='!text-[16px] lg:!text-[23.99px] leading-[160%]'>{t("totalSale")}</Text>
             </div>
             <div>
-              <Heading tag='h3'>{actionLoading ? "0" : actionsList.meta.total}</Heading>
+              <Heading tag='h3'>{actionLoading ? "0" : actionsList?.meta?.total}</Heading>
               <Text classList='!text-[16px] lg:!text-[23.99px] leading-[160%]'>{t("auctions")}</Text>
             </div>
             <div>
-              <Heading tag='h3'>{artistLoading ? "0" : artistsList.meta.total}</Heading>
+              <Heading tag='h3'>{artistLoading ? "0" : artistsList?.meta?.total}</Heading>
               <Text classList='!text-[16px] lg:!text-[23.99px] leading-[160%]'>{t("artists")}</Text>
             </div>
           </div>

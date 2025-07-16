@@ -19,7 +19,7 @@ export default async function Home() {
   return (
     <>
       <Hero actions={auctions} artists={artists} actionResults={auctionsResults} />
-      <Collections collection={collections} />
+      <Collections queryKey="collections" collection={collections} />
       <Creators artists={artists} />
       <Category categories={categories}/>
       <NFTMore nft={nft}/>

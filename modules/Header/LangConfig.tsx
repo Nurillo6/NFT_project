@@ -20,7 +20,6 @@ const LangConfig = () => {
         { id: 3, icon: <UzbIcon />, title: "uz", content: "O'z" }
     ]
     const [lang, setLang] = useState<LangType>(langList[0])
-
     function handleChangeLang(item: LangType) {
         setLang(item)
         router.push(pathname, { locale: item.title })
