@@ -1,5 +1,6 @@
 export interface RouteType {
     id:number,
     title:string, 
-    count:number
+    count:number,
+    path?:string
 }

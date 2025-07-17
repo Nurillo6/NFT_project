@@ -7,7 +7,7 @@ export interface ArtistType {
   username: string;
   email: string;
   password: string;
-  image:string;
+  image: string;
   role: string;
   bio: string;
   globeAccLink: string;
@@ -23,8 +23,17 @@ export interface ArtistType {
 }
 
 export interface ArtistPageType {
-  artistsList:{
-    data:ArtistType[],
-    meta:MetaType
-  }
-} 
+  artistsList: {
+    data: ArtistType[];
+    meta: MetaType;
+  };
+}
+
+export interface TopCreateorType {
+  artistId: string;
+  artistName: string;
+  nftSold: number;
+  totalRevenue: number;
+  growth: number;
+  image:string
+}

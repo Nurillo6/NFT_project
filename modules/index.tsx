@@ -9,5 +9,5 @@ import Learn from "./Learn";
 import Footer from "./Footer";
 import Join from "./Join";
 import SingleArtist from "./Artist/SingleArtist"
-
-export {Header, Footer, Hero, Collections, Artist, Category, NFTMore, MagicMushrooms, Learn, Join, SingleArtist}
+import SingleAuctionContent from "./Auctions/SingleAuctionContent";
+export {SingleAuctionContent, Header, Footer, Hero, Collections, Artist, Category, NFTMore, MagicMushrooms, Learn, Join, SingleArtist}

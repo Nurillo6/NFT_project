@@ -4,5 +4,6 @@ export interface InputType {
   placeholder?: string;
   type: "text" | "email" | "password";
   classList?: string;
-  onChange?:ChangeEventHandler<HTMLInputElement>
+  onChange?:ChangeEventHandler<HTMLInputElement>,
+  value?:string
 }

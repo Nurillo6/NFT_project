@@ -1,4 +1,4 @@
-import { NftType } from "./NftType";
+import { NftType, NftType2 } from "./NftType";
 
 export interface AuctionType {
   id: string;
@@ -11,4 +11,7 @@ export interface AuctionType {
   nftId: string;
   nft: NftType
   results: any;
+}
+export interface AuctionsType2 extends AuctionType {
+  nft: NftType2
 }

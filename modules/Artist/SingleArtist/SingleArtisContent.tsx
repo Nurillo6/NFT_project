@@ -5,19 +5,24 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { CollectionsNested, Created, Owned } from '../SingleNested'
 import { ArtistType } from '@/@types/ArtistType'
-import { Link } from '@/i18n/navigation'
 import { API } from '@/hooks/getEnv'
 import { NftType2 } from '@/@types/NftType'
+import Link from 'next/link'
 
-const SingleArtisContent = ({singleArtist,ownedList}:{singleArtist:ArtistType, ownedList:NftType2[]}) => {
-    const [active, setActive] = useState<"created" | "owned" | "collections">("created")
+const SingleArtisContent = ({singleArtist,ownedList, activeCollection}:{singleArtist:ArtistType, ownedList:NftType2[], activeCollection?:boolean}) => {
+    const [active, setActive] = useState<"created" | "owned" | "collections">(activeCollection ? "collections" : "created")
     const routeList = [
-        { id: 1, title: "Created", count: singleArtist.createdNFTs.length },
-        { id: 2, title: "Owned", count: ownedList.length},
-        { id: 3, title: "Collections", count: singleArtist.collections.length }
+        { id: 1, title: "Created", count: singleArtist.createdNFTs.length, path:"created" },
+        { id: 2, title: "Owned", count: ownedList.length, path:"owned"},
+        { id: 3, title: "Collections", count: singleArtist.collections.length, path:"collections" }
     ]
-    const links = [<GlobalIcon />, <Discord />, <YouTube />, <Twitter />, <Instagram />]
-
+    const links = [
+        {id:1,icon:<GlobalIcon />, href:singleArtist.globeAccLink},
+        {id:2,icon:<Discord />, href:singleArtist.discordAccLink},
+        {id:3,icon:<YouTube />, href:singleArtist.youtubeAccLink},
+        {id:4,icon:<Twitter />, href:singleArtist.twitterAccLink},
+        {id:5,icon:<Instagram />, href:singleArtist.instagramAccLink},
+    ]
     return (
         <>
             <div style={{ backgroundImage: "url(/single-bg.png)", backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className='h-[320px] '></div>
@@ -45,7 +50,7 @@ const SingleArtisContent = ({singleArtist,ownedList}:{singleArtist:ArtistType, o
                         <div>
                             <Text classList='!text-[22px] !text-[#858584]'>Links</Text>
                             <div className='flex gap-[10px] mt-[10px]'>
-                                {links.map((item, index) => <Link key={index} href={"#"}>{item}</Link>)}
+                                {links.map((item, index) => <Link target='_blank' className='hover:scale-[1.2] duration-300' key={index} href={`https://${item.href}`}>{item.icon}</Link>)}
                             </div>
                         </div>
                     </div>

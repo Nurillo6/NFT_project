@@ -5,10 +5,11 @@ import React, { FC } from 'react'
 import Button from './Button'
 import Heading from './Heading'
 import Text from './Text'
+import { Link } from '@/i18n/navigation'
 
 const CollectionCard: FC<{ item: CollectionType, name?:string, imgURL?:string }> = ({ item, name, imgURL }) => {
     return (
-        <div className='w-[330px]'>
+        <Link href={`/creator/collections/${item.creatorId}`} className='w-[330px]'>
             <Image className='w-[330px] rounded-[20px] object-cover h-[330px] mb-[15px]' src={`${API}/file/${item.images[0]}`} alt='Collection img' width={330} height={330} priority />
             <div className='flex justify-between'>
                 <Image className='w-[100px] rounded-[20px] object-cover h-[100px] mb-[15px]' src={`${API}/file/${item?.images[1]}`} alt='Collection img' width={100} height={100} priority />
@@ -20,7 +21,7 @@ const CollectionCard: FC<{ item: CollectionType, name?:string, imgURL?:string }>
                 <Image className='w-[24px] rounded-full object-cover h-[24px]' src={`${API}/file/${imgURL ? imgURL : item.creator.image}`} alt='Creator img' width={24} height={24} priority />
                 <Text classList='!text-[18px] !text-[#FFFFFF]'>{name ? name : item.creator.username}</Text>
             </div>
-        </div>
+        </Link>
     )
 }
 

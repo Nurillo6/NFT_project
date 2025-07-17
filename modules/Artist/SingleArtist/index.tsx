@@ -3,9 +3,9 @@ import { ArtistType } from '@/@types/ArtistType'
 import SingleArtisContent from './SingleArtisContent'
 import { getRequestServer } from '@/service/getRequest'
 
-const SingleCreator: FC<{ singleArtist: ArtistType,id:string }> = async ({ singleArtist, id }) => {
+const SingleCreator: FC<{ singleArtist: ArtistType,id:string, activeCollection?:boolean }> = async ({ singleArtist, id, activeCollection }) => {
     const ownedList = await getRequestServer(`/nfts?ownerId=${id}`)
-    return <SingleArtisContent singleArtist={singleArtist} ownedList={ownedList.data}/>
+    return <SingleArtisContent activeCollection={activeCollection} singleArtist={singleArtist} ownedList={ownedList.data}/>
 }
 
 export default SingleCreator
