@@ -6,6 +6,7 @@ const TopCreator = async () => {
     const topCreatorToday = await getRequestServer("/ranking/rankings?period=today")
     const topCreatorWeek = await getRequestServer("/ranking/rankings?period=week")
     const topCreatorMonth = await getRequestServer("/ranking/rankings?period=month")
+    
     return <TopCreatorContent topCreatorToday={topCreatorToday} topCreatorWeek={topCreatorWeek} topCreatorMonth={topCreatorMonth} topCeatorData={topCreatorData}/>
 }
 
