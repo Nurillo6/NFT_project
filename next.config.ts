@@ -3,7 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["44.201.132.40"]
+    domains: ["44.201.132.40", "nft-project-l45u.vercel.app"]
   }
 };
 
