@@ -1,10 +1,8 @@
+import { WalletContent } from '@/modules'
 import React from 'react'
 
 const Wallet = () => {
-    // Odilbek yozib beraman dedila 🔥
-  return (
-    <div>Wallet</div>
-  )
+  return <WalletContent/>
 }
 
 export default Wallet

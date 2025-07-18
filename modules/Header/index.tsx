@@ -16,9 +16,11 @@ const Header = () => {
         <nav className="hidden lg:flex items-center gap-2.5">
           <Link className="text-[14px] font-semibold text-[#FFFFFF] inline-block py-3 px-5" href={'/marketplace'}>{t("navItem1")}</Link>
           <Link className="text-[14px] font-semibold text-[#FFFFFF] inline-block py-3 px-5" href={'/top-creator'}>{t("navItem2")}</Link>
-          <Link className="text-[14px] font-semibold text-[#FFFFFF] inline-block py-3 px-5" href={'/connect-wallet'}>{t("navItem3")}</Link>
+          <Link className="text-[14px] font-semibold text-[#FFFFFF] inline-block py-3 px-5" href={'/wallet'}>{t("navItem3")}</Link>
           <LangConfig />
+        <Link href={'/register'}>
           <Button title={t("button")} icon={<UserIcon />} iconPostion="left" type="button" variant="filled" />
+        </Link>
         </nav>
         <button className="lg:hidden"> <MenuIcon /> </button>
       </div>

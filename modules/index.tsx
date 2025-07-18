@@ -10,4 +10,5 @@ import Footer from "./Footer";
 import Join from "./Join";
 import SingleArtist from "./Artist/SingleArtist"
 import SingleAuctionContent from "./Auctions/SingleAuctionContent";
-export {SingleAuctionContent, Header, Footer, Hero, Collections, Artist, Category, NFTMore, MagicMushrooms, Learn, Join, SingleArtist}
+import WalletContent from "./Wallet/WalletContent"
+export {WalletContent,SingleAuctionContent, Header, Footer, Hero, Collections, Artist, Category, NFTMore, MagicMushrooms, Learn, Join, SingleArtist}

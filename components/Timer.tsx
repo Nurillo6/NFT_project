@@ -1,8 +1,11 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { FormatTime } from './Format';
+import Button from './Button';
+import { usePathname } from '@/i18n/navigation';
 
 const Timer = ({hours,minutes,seconds}:{hours:number,minutes:number,seconds:number}) => {
+    const pathname = usePathname()
     const [timeLeft, setTimeLeft] = useState({ hours: hours, minutes: minutes, seconds: seconds});
     useEffect(() => {
         const timer = setInterval(() => {
@@ -29,7 +32,7 @@ const Timer = ({hours,minutes,seconds}:{hours:number,minutes:number,seconds:numb
         return () => clearInterval(timer);
     }, []);
     return (
-        <div className="bg-black/40 w-[300px] backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+        <div className={`${pathname.startsWith("/auctions") ? "bg-[#3B3B3B80]" : "bg-black/40"} w-[300px] backdrop-blur-lg rounded-2xl p-6 border border-white/20`}>
             <div className="text-white/80 text-sm mb-2">Auction ends in:</div>
             <div className="flex items-center space-x-4">
                 <div className="text-center">
@@ -53,6 +56,7 @@ const Timer = ({hours,minutes,seconds}:{hours:number,minutes:number,seconds:numb
                     <div className="text-white/60 text-xs">Seconds</div>
                 </div>
             </div>
+            {pathname.startsWith("/auctions") && <Button extraClass='!w-full !justify-center !mt-[30px]' title='Place Bid' type='button' variant='filled' />}
         </div>
     )
 }

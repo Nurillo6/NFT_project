@@ -1,8 +1,8 @@
 import { SingleArtist } from '@/modules';
 import { getRequestServer } from '@/service/getRequest';
-import React, { FC, ReactNode } from 'react'
+import React, { FC } from 'react'
 
-const CreatorLayout: FC<{ children: ReactNode, params: Promise<{ id: string }> }> = async ({ children, params }) => {
+const CreatorLayout: FC<{ params: Promise<{ id: string }> }> = async ({ params }) => {
   const { id } = await params
   const singleArtist = await getRequestServer(`/user/${id}`);
   return (
